@@ -5,7 +5,7 @@ Usage: x = gaussElimin(a, b).
 Solves [a]{b} = {x} by Gauss elimination.
 '''
 
-from numarray import dot
+import numpy
 
 def gaussElimin(a, b):
 	n = len(b)
@@ -18,5 +18,5 @@ def gaussElimin(a, b):
 				b[i] = b[i] - lam*b[k]
 	# Back substitution
 	for k in range(n-1, -1, -1):
-		b[k] = (b[k] - dot(a[k, k+1:n], b[k+1:n])) / a[k,k]
+		b[k] = (b[k] - numpy.dot(a[k, k+1:n], b[k+1:n])) / a[k,k]
 	return b
